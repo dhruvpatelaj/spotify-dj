@@ -23,18 +23,17 @@ class App extends React.Component {
             let authToken = url.split("token=")[1].split("&")[0].trim();
             let authorized = true;
             this.setState({ authToken, authorized });
+            console.log("authorized!!!");
         }
     };
 
-    authorize = () => {
-        console.log("AUTHORIZE");
-        window.location.assign(spotifyAPI_url);
-    };
     render() {
         return (
             <div className="App">
                 <h1> App.js </h1>
-                <button onClick={this.authorize}>Log in</button>
+                {/* Hides the login button if unauthorized */}
+                {!this.state.authorized && <Login />}
+
                 <h1> Test</h1>
             </div>
         );
