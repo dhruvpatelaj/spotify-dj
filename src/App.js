@@ -1,14 +1,6 @@
 import React from "react";
 import "./App.css";
-import { Login } from "./components";
-
-import axios from "axios";
-import {
-    spotifyAPI_url,
-    client_id,
-    client_secret,
-    redirect_URI,
-} from "./configs";
+import { Login, Playback } from "./components";
 
 class App extends React.Component {
     state = {
@@ -33,8 +25,12 @@ class App extends React.Component {
                 <h1> App.js </h1>
                 {/* Hides the login button if unauthorized */}
                 {!this.state.authorized && <Login />}
-
-                <h1> Test</h1>
+                {this.state.authorized && (
+                    <Playback
+                        auth={this.state.authorized}
+                        token={this.state.authToken}
+                    />
+                )}
             </div>
         );
     }

@@ -1,11 +1,6 @@
 import React from "react";
 import styles from "./Login.module.css";
-import {
-    spotifyAPI_url,
-    client_id,
-    client_secret,
-    redirect_URI,
-} from "../../configs";
+import { spotifyAPI_url } from "../../configs";
 
 const authorize = () => {
     console.log("AUTHORIZE");
